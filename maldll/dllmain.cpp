@@ -36,7 +36,13 @@ extern "C" __declspec(dllexport) void CALLBACK internet_conn() {
     HANDLE conn_url = InternetOpenUrlA(conn, "https://www.google.com", 0, 0, INTERNET_FLAG_RAW_DATA, 0);
     MessageBox(0, L"Connessione riuscita", L"Conn", 0);
 }
-
+/*
+extern "C" __declspec(dllexport) void CALLBACK createprocess() {
+    HANDLE hToken = GetCurrentProcessToken();
+    //CreateProcessAsUser(hToken, NULL, NULL, );
+    CreateProcessA("test", "test.exe", NULL, NULL, TRUE, 0, NULL, NULL, &info, &processInfo);
+}
+*/
 BOOL APIENTRY DllMain( HMODULE hModule,
                        DWORD  ul_reason_for_call,
                        LPVOID lpReserved
