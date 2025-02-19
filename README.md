@@ -1,2 +1,2 @@
 # maldll
-Use the rundll32 utility to launch the maldll.dll file
+A collection of DLL files with the most common win32 API abused by malwares
