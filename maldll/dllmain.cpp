@@ -6,6 +6,15 @@ extern "C" __declspec(dllexport) void CALLBACK mydllmain()
     MessageBox(0, L"Test!", L"Mytest", 0);
 }
 
+extern "C" __declspec(dllexport) void CALLBACK amibeingdebugged() {
+    if (IsDebuggerPresent() != 0) {
+        MessageBox(0, L"Am I being debugged right now?", L"Suspicious debug", 0);
+    }
+    else {
+        MessageBoxW(0, L"Not in a debug environment", L"Everything fine", 0);
+    }
+}
+
 BOOL APIENTRY DllMain( HMODULE hModule,
                        DWORD  ul_reason_for_call,
                        LPVOID lpReserved
