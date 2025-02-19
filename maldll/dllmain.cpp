@@ -1,6 +1,11 @@
 // dllmain.cpp : Defines the entry point for the DLL application.
 #include "pch.h"
 
+extern "C" __declspec(dllexport) void CALLBACK mydllmain()
+{
+    MessageBox(0, L"Test!", L"Mytest", 0);
+}
+
 BOOL APIENTRY DllMain( HMODULE hModule,
                        DWORD  ul_reason_for_call,
                        LPVOID lpReserved
