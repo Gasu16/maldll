@@ -15,6 +15,17 @@ extern "C" __declspec(dllexport) void CALLBACK amibeingdebugged() {
     }
 }
 
+extern "C" __declspec(dllexport) void CALLBACK createfile() {
+    HANDLE hFile = CreateFileA("myfile.txt", GENERIC_READ | GENERIC_WRITE, FILE_SHARE_READ, NULL, CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, NULL);
+    MessageBox(0, L"File Created", L"File", 0);
+    char szBuffer[256];
+    char text[255] = "ciao";
+    DWORD dwBytesWritten;
+    strncpy_s(szBuffer, sizeof(szBuffer), text, strlen(text));
+    WriteFile(hFile, szBuffer, strlen(szBuffer), &dwBytesWritten, NULL);
+    MessageBox(0, L"File Written", L"FileW", 0);
+}
+
 BOOL APIENTRY DllMain( HMODULE hModule,
                        DWORD  ul_reason_for_call,
                        LPVOID lpReserved
